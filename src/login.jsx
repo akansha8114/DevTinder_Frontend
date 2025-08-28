@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import axios from 'axios';
+import {useDispatch} from 'react-redux';
+import { addUser } from './utils/userSlice';
+import { useNavigate } from 'react-router-dom';
+import  Base_URL  from './utils/constants';
 
 
 const Login = () => {
   const [Email, setEmail] = useState("aakansha@gmail.com");
   const [Password, setPassword] = useState("Aakansha@123");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlelogin = async () => {
+    
     try {
       const res = await axios.post(
-        "http://localhost:3000/login",
+        Base_URL +"/login",
         {
           email: Email,
           password: Password,
@@ -19,7 +26,9 @@ const Login = () => {
           // headers: { "Content-Type": "application/json" }, // optional
         }
       );
-        console.log(res.data);
+      console.log(res.data);
+      dispatch(addUser(res.data));    // dispatch action means send data to the redux store
+      return navigate("/");  // after login redirect to home page
     } catch (err) {
       console.log(err);
     }

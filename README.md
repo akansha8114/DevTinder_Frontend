@@ -11,7 +11,11 @@
 -Install axios and cors -> add middleware to with backend: origin , credentials:true
 - whenever u are makin aAPi call always pass axios => with {credentials:true}
 -CORs error , cross oriign domain.
--
+-install redux toolkit => create a configureStore=> add a provider in app.js => add reducer to the store.
+-Add redux toolkit in chrome
+-login and see if data is coming properly in redux store
+-NavBar should update as soon as we logged in 
+-Refactor our code to add constants file and create a components folder.
 
 
 
