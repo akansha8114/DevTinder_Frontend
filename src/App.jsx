@@ -3,11 +3,14 @@ import NavBar from "./NavBar"
 import Body from "./Body"
 import Login from "./login"
 import Profile from "./Profile"
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 function App() {
   return (
     <>
-      <BrowserRouter basename="/">
+    <Provider store={appStore}>
+       <BrowserRouter basename="/">
         <Routes>
          <Route path = "/" element = {<Body/>}>
            <Route path = "login" element = {<Login/>}/>
@@ -17,6 +20,8 @@ function App() {
          
         </Routes>
       </BrowserRouter>
+    </Provider>
+     
       <h1 className="text-3xl font-bold underline">Hello Aakansha...</h1>
     </>
   );
