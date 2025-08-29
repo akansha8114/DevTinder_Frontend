@@ -9,6 +9,7 @@ import  Base_URL  from './utils/constants';
 const Login = () => {
   const [Email, setEmail] = useState("aakansha@gmail.com");
   const [Password, setPassword] = useState("Aakansha@123");
+  const [error,seterror] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const Login = () => {
       dispatch(addUser(res.data));    // dispatch action means send data to the redux store
       return navigate("/");  // after login redirect to home page
     } catch (err) {
+      seterror(err?.response?.data || "Something went wrong"); ;
       console.log(err);
     }
   };
@@ -102,6 +104,7 @@ const Login = () => {
             </label>
             <div className="validator-hint hidden">Enter valid Password</div>
           </div>
+          <p className = "text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn" onClick={handlelogin}>
               Login
