@@ -20,6 +20,8 @@
 -You should not be access other routes without login
 -if token is not present , redirect to the login page 
 -now build Logut and Profile page
+-get the feed and add the feed in the store
+-Built the usercard on the feed
 
 
 
