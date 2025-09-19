@@ -1,19 +1,19 @@
 import React from 'react'
-import Feed from '../Feed';
+//import Feed from './components/Feed';
 
 const UserCard = ({user}) => {
-  const {firstName,lastName,age, gender,about} = user;
+  const {firstName,lastName,age, gender,about,photourl} = user;
   console.log(user);
   return (
     <div className="card bg-base-300 w-96 shadow-sm">
       <figure>
         <img
-          src={user.photourl} alt = "user photo"
+          src={photourl} alt = "user photo"
         />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
-        {age && gender && <p>Age : {age} + " , "+ Gender : {gender}</p>}
+        {age && gender && <p>Age : {age}  , Gender : {gender}</p>}
         <p>
          {about}
         </p>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Base_URL from './utils/constants'
+import Base_URL from '../utils/constants'
 import axios from 'axios'
 import { useEffect } from 'react'
-import UserCard from './components/UserCard'
+import UserCard from './UserCard'
 import {useSelector,useDispatch} from 'react-redux'
-import { addFeed } from './utils/feedSlice'
+import { addFeed } from '../utils/feedSlice'
 
 const Feed = () => {
   const feed = useSelector ((store) => store.feed);

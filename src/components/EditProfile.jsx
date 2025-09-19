@@ -7,8 +7,8 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const EditProfile = ({ user }) => {
-  const [FirstName, setFirstName] = useState(user.FirstName);
-  const [LastName, setLastName] = useState(user.LastName);
+  const [firstName, setfirstName] = useState(user.firstName);
+  const [lastName, setlastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age);
   const [gender, setgender] = useState(user.gender);
   const [about, setabout] = useState(user.about);
@@ -22,12 +22,12 @@ const EditProfile = ({ user }) => {
     try {
       const res = await axios.patch(
         Base_URL + "/profile/edit",
-        { FirstName, LastName, age, gender, about, photourl },
+        { firstName, lastName, age, gender, about, photourl },
         { withCredentials: true }
       );
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
-        setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
+      setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
     } catch (err) {
       setError(err?.response?.data || "Something went wrong");
     }
@@ -47,14 +47,14 @@ const EditProfile = ({ user }) => {
                 <label className="input validator">
                   <input
                     type="text"
-                    value={FirstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="FirstName"
+                    value={firstName}
+                    onChange={(e) => setfirstName(e.target.value)}
+                    placeholder="firstName"
                     required
                   />
                 </label>
                 <div className="validator-hint hidden">
-                  Enter valid FirstName
+                  Enter valid firstName
                 </div>
               </div>
               {/* Ends inputfield */}
@@ -65,14 +65,14 @@ const EditProfile = ({ user }) => {
                 <label className="input validator">
                   <input
                     type="text"
-                    value={LastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="LastName"
+                    value={lastName}
+                    onChange={(e) => setlastName(e.target.value)}
+                    placeholder="lastName"
                     required
                   />
                 </label>
                 <div className="validator-hint hidden">
-                  Enter valid LastName
+                  Enter valid lastName
                 </div>
               </div>
               {/* Ends inputfield */}
@@ -149,7 +149,7 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
         <UserCard
-          user={{ FirstName, LastName, age, gender, about, photourl }}
+          user={{ firstName, lastName, age, gender, about, photourl }}
         />
       </div>
       {showToast && <div className="toast toast-top toast-center">

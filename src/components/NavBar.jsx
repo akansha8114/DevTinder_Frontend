@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux';
 import axios from 'axios';
-import { removeUser } from './utils/userSlice';
-import Base_URL from './utils/constants';
+import { removeUser} from '../utils/userSlice';
+import Base_URL from '../utils/constants';
 import { Link, useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
@@ -55,7 +55,7 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to = "/connections">Connections</Link> 
               </li>
               <li>
                 <a onClick = {handleLogout}>Logout</a>

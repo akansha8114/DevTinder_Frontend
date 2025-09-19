@@ -22,6 +22,8 @@
 -now build Logut and Profile page
 -get the feed and add the feed in the store
 -Built the usercard on the feed
+-Edit profile feature 
+-Show toast message on saving the profile
 
 
 

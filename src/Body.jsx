@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from './NavBar'
+import NavBar from './components/NavBar'
 import { useNavigate } from 'react-router-dom'
 import  Base_URL  from './utils/constants';
 import axios from 'axios'
@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 import { addUser } from './utils/userSlice'
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import Footer from './Footer'
+import Footer from './components/Footer'
 
 const Body = () => {
   const dispatch  = useDispatch();
