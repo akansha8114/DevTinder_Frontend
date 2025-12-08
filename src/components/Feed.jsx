@@ -11,13 +11,13 @@ const Feed = () => {
   const dispatch = useDispatch();
    const getFeed = async() =>{
     if(feed) return;
-    const res = await axios.get(Base_URL + "/feed", {withCredentials:true});
+    const res = await axios.get(Base_URL + "/Feed", {withCredentials:true});
     dispatch(addFeed(res?.data?.data));
    }
 
    useEffect(()=>{
     getFeed();
-   },[]);
+   });
   
 
 return feed &&  (

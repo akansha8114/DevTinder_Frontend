@@ -4,6 +4,7 @@ import axios from 'axios';
 import { removeUser} from '../utils/userSlice';
 import Base_URL from '../utils/constants';
 import { Link, useNavigate } from 'react-router-dom'
+import UserCard from './UserCard';
 
 const NavBar = () => {
   const user = useSelector((store) => store.user); // to access the user state from the redux store
