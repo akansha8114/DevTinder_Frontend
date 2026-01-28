@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios from "axios";
 import {useDispatch} from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -17,14 +17,14 @@ const Login = () => {
     
     try {
       const res = await axios.post(
-        Base_URL +"/Login",
+        Base_URL +"/login",
         {
           email: Email,
           password: Password,
         },
         {
-          withCredentials: true, // ✅ must be in config (3rd arg)
-          // headers: { "Content-Type": "application/json" }, // optional
+           withCredentials: true // ✅ must be in config (3rd arg)
+        //   // headers: { "Content-Type": "application/json" }, // optional
         }
       );
       console.log(res.data);

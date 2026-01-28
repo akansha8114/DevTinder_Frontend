@@ -31,7 +31,7 @@ const NavBar = () => {
             placeholder="Search"
             className="input input-bordered w-24 md:w-auto"
           />
-          <div className = "form-control">Welcome {user.name}</div>
+          <div className = "form-control">Welcome {user.firstName}</div>
           <div className="dropdown dropdown-end mx-5 flex-items-center">
             <div
               tabIndex={0}
