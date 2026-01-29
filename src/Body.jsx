@@ -12,7 +12,8 @@ import Footer from './components/Footer'
 const Body = () => {
   const dispatch  = useDispatch();
   const navigate = useNavigate();
-  const userData = useSelector((store) => store.user);
+  const userData = useSelector((store) => store.user); // to access the user state from the redux store
+  //after reloading the page this function fetch logged in user data from the server
   const fetchUser = async() =>{
     if(userData) return;
     try{

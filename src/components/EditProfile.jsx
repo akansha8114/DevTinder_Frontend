@@ -18,7 +18,7 @@ const EditProfile = ({ user }) => {
   const dispatch = useDispatch();
 
   const saveProfile = async () => {
-    setError(" ");
+    setError(" "); /// clear previous error
     try {
       const res = await axios.patch(
         Base_URL + "/profile/edit",
