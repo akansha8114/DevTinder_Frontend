@@ -1,25 +1,24 @@
-import React from 'react'
-import { useDispatch,useSelector } from 'react-redux';
-import axios from 'axios';
-import { removeUser} from '../utils/userSlice';
-import {Base_URL} from '../utils/constants';
-import { Link, useNavigate } from 'react-router-dom'
-import UserCard from './UserCard';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { removeUser } from "../utils/userSlice";
+import { Base_URL } from "../utils/constants";
+import { Link, useNavigate } from "react-router-dom";
+import UserCard from "./UserCard";
 
 const NavBar = () => {
   const user = useSelector((store) => store.user); // to access the user state from the redux store
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleLogout = async() =>{
-    try{
-      await axios.post(Base_URL + "/logout", {}, {withCredentials:true});
+  const handleLogout = async () => {
+    try {
+      await axios.post(Base_URL + "/logout", {}, { withCredentials: true });
       dispatch(removeUser()); // Clear user data from Redux store
       return navigate("/login"); // Redirect to login page
-    }
-    catch(err){
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <div className="navbar bg-base-300">
@@ -29,16 +28,21 @@ const NavBar = () => {
         </Link>
       </div>
       {user && (
+        
         <div className="flex-none gap-2">
           <div className="form-control">Welcome, {user.firstName}</div>
           <div className="dropdown dropdown-end mx-5 flex">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="btn btn-ghost btn-circle avatar hover:scale-105 transition"
             >
               <div className="w-10 rounded-full">
-                <img alt="user photo" src={user.photourl} />
+                <img
+                  src={user.photoURL || "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"}
+                  alt="Profile"
+                />
+                {/* <img alt="user photo" src={user.photourl} /> */}
               </div>
             </div>
             <ul

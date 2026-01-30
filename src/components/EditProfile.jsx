@@ -7,12 +7,12 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const EditProfile = ({ user }) => {
-  const [firstName, setfirstName] = useState(user.firstName);
-  const [lastName, setlastName] = useState(user.lastName);
-  const [age, setAge] = useState(user.age);
-  const [gender, setgender] = useState(user.gender);
-  const [about, setabout] = useState(user.about);
-  const [photourl, setphotourl] = useState(user.photourl);
+  const [firstName, setfirstName] = useState(user?.firstName || "");
+  const [lastName, setlastName] = useState(user?.lastName || "");
+  const [age, setAge] = useState(user?.age || "");
+  const [gender, setgender] = useState(user?.gender || "");
+  const [about, setabout] = useState(user?.about || "");
+  const [photourl, setphotourl] = useState(user?.photourl || "");
   const [showToast, setShowToast] = useState(false);    
   const [error, setError] = useState("");
   const dispatch = useDispatch();
@@ -32,6 +32,7 @@ const EditProfile = ({ user }) => {
       setError(err?.response?.data || "Something went wrong");
     }
   };
+  
 
 return (
     <>

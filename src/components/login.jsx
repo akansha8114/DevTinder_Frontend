@@ -7,8 +7,8 @@ import  {Base_URL}  from '../utils/constants';
 
 
 const Login = () => {
-  const [Email, setEmail] = useState("aakansha@gmail.com");
-  const [Password, setPassword] = useState("Aakansha@123");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isLoginForm, setIsLoginForm] = useState(true);
@@ -43,7 +43,7 @@ const Login = () => {
     try {
       const res = await axios.post(
         Base_URL + "/signup",
-        { firstName, lastName, Email, Password },
+        { firstName, lastName, email: Email, password: Password },
         { withCredentials: true }
       );
       dispatch(addUser(res.data.data));
