@@ -21,6 +21,7 @@ const NavBar = () => {
   };
 
   return (
+    <div className="navbar glass-effect border-b border-base-content/10">
     <div className="navbar bg-base-300">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost text-xl">
@@ -39,7 +40,7 @@ const NavBar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  src={user.photoURL || "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"}
+                  src={user.photourl || "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"}
                   alt="Profile"
                 />
                 {/* <img alt="user photo" src={user.photourl} /> */}
@@ -73,6 +74,7 @@ const NavBar = () => {
         </div>
       )}
     </div>
+  </div>
   );
 };
 export default NavBar;
